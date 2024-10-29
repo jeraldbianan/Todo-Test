@@ -6,6 +6,7 @@ const { fetchTodos } = useTodos()
 
 const selectedStatus = ref('')
 
+// if the select value is changed, triggers this function to refetch todos with the status parameter
 const handleSelect = async () => {
   await fetchTodos(selectedStatus.value)
 }

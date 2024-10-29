@@ -16,7 +16,7 @@ onMounted(() => {
 <template>
   <template v-if="error">
     <ErrorCard :retry="fetchTodos">
-      Could not load todos at the moment. Please try again.
+      {{ error }}
     </ErrorCard>
   </template>
   <template v-else>
@@ -30,6 +30,7 @@ onMounted(() => {
         </template>
       </template>
       <template v-else>
+        <!-- if application is still fetching todos, load a placeholder for optimistic UI -->
         <LoadingTodoCard v-for="i in 4" :key="i" />
       </template>
     </section>

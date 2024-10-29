@@ -22,6 +22,7 @@ const input = ref<NewTodo>({
   title: '',
   description: '',
 })
+// activates focus trap, so that focus won't get out of the modal/dialog
 const { activate, deactivate } = useFocusTrap(modalElement)
 
 onMounted(() => {

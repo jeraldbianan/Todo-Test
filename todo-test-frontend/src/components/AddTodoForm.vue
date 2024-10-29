@@ -1,19 +1,40 @@
 <script setup lang="ts">
 import useTodos from '@/composables/useTodos'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 
 const title = ref('')
 const description = ref('')
+const titleError = ref('')
+const descriptionError = ref('')
 
 const { storeTodo } = useTodos()
 
-const isValidInputs = computed(
-  () => title.value !== '' && description.value !== '',
-)
+// Function to validate inputs
+const validateInputs = () => {
+  let valid = true
+  titleError.value = '' // Reset error messages
+  descriptionError.value = ''
+
+  // Validate title
+  if (title.value.trim() === '') {
+    titleError.value = 'Title is required.'
+    valid = false
+  }
+
+  // Validate description
+  if (description.value.trim() === '') {
+    descriptionError.value = 'Description is required.'
+    valid = false
+  }
+
+  return valid
+}
 
 const submitTodo = async () => {
-  if (!isValidInputs.value) {
-    return
+  // Call validateInputs and store the result
+  const isValid = validateInputs()
+  if (!isValid) {
+    return // Prevent submission if inputs are invalid
   }
 
   const data = {
@@ -23,6 +44,9 @@ const submitTodo = async () => {
   }
 
   await storeTodo(data)
+  // Clear inputs after submission
+  title.value = ''
+  description.value = ''
 }
 </script>
 
@@ -37,7 +61,8 @@ const submitTodo = async () => {
         placeholder="Buy Groceries"
         class="rounded-md border p-2"
       />
-      <p></p>
+      <p class="text-red-500">{{ titleError }}</p>
+      <!-- Display title error -->
     </div>
 
     <div class="mb-2 flex flex-col gap-1">
@@ -49,6 +74,8 @@ const submitTodo = async () => {
         placeholder="Go to market and buy groceries"
         class="rounded-md border p-2"
       />
+      <p class="text-red-500">{{ descriptionError }}</p>
+      <!-- Display description error -->
     </div>
 
     <button
