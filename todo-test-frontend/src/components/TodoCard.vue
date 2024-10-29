@@ -42,7 +42,9 @@ const openDeleteModal = () => {
 <template>
   <SectionCard>
     <template #header>
-      <div class="flex justify-between">
+      <div
+        class="flex flex-col items-center gap-2 lg:flex-row lg:justify-between"
+      >
         {{ todo.title }}
         <time :datetime="todo.created_at" class="text-xs">
           Posted: {{ moment(todo.created_at).fromNow() }}
@@ -53,7 +55,9 @@ const openDeleteModal = () => {
     <p>{{ todo.description }}</p>
 
     <template #footer>
-      <div class="flex justify-between">
+      <div
+        class="flex flex-col items-center gap-4 lg:flex-row lg:justify-between"
+      >
         <div class="flex items-center gap-1">
           <p
             class="rounded-2xl bg-orange-500 px-2 py-1 text-sm text-white"

@@ -20,7 +20,7 @@ onMounted(() => {
     </ErrorCard>
   </template>
   <template v-else>
-    <section class="grid w-full grid-cols-2 gap-8 lg:grid-cols-1">
+    <section class="mx-2 grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
       <template v-if="!loading">
         <template v-if="todos.length">
           <TodoCard v-for="todo in todos" :key="todo.id" :todo="todo" />

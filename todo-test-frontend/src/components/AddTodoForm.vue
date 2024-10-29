@@ -51,7 +51,7 @@ const submitTodo = async () => {
 </script>
 
 <template>
-  <form @submit.prevent="submitTodo" class="w-[500px]">
+  <form @submit.prevent="submitTodo" class="w-full lg:max-w-[500px]">
     <div class="mb-2 flex flex-col gap-1">
       <label for="title">Title</label>
       <input
