@@ -14,7 +14,7 @@ BACKEND
 
   example
 
-  ![1730239231011](https://file+.vscode-resource.vscode-cdn.net/Users/jeraldbianan/Desktop/Web%20Development/Fullstack/Test%20Todo/image/READMEcopy/1730239231011.png)
+ <img width="272" alt="Screenshot 2024-10-30 at 5 59 20 AM" src="https://github.com/user-attachments/assets/436c6936-5f22-4698-8ffb-1347596f527c">
 
 if you are using SQLite all you have to do is comment out everything except DB_CONNECTION, you need to create a database file in database folder in your laravel root directory
 
