@@ -20,7 +20,7 @@ class StoreTodoRequest extends FormRequest {
     public function rules(): array {
         return [
             'title' => 'required|min:3',
-            'description' => 'required|5'
+            'description' => 'required|min:5'
         ];
     }
 }
